@@ -8,7 +8,7 @@ file = r'Sample\Eng\Terminal.png'#변환한 파일 선택
 
 img = cv2.imread(file) # 불러올 파일 저장
 
-language = int(input("1. English + 한국어\n2. English\n3. 한국어")) #언어 선택
+language = int(input("1. English + 한국어\n2. English\n3. 한국어\n")) #언어 선택
 if language == 1:
     language = 'eng+kor'
 elif language == 2:
