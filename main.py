@@ -4,14 +4,16 @@ import pytesseract
 
 pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract' #테서렉트 경로 지정
 
-file = r'Sample\Kor\test2.jpg'#변환한 파일 선택
+file = r'Sample\Eng\Terminal.png'#변환한 파일 선택
 
 img = cv2.imread(file) # 불러올 파일 저장
 
-language = int(input("1. English\n2. korean")) #언어 선택 (한+영 혼합 기능 추가필!!)
+language = int(input("1. English + 한국어\n2. English\n3. 한국어")) #언어 선택
 if language == 1:
-    language = 'eng'
+    language = 'eng+kor'
 elif language == 2:
+    language = 'eng'
+elif language == 3:
     language = 'kor'
 
 prossess = int(input("1. 원본\n2. 흑백\n")) #원본 / 그레이스케일 선 택
