@@ -4,7 +4,7 @@ import pytesseract
 
 pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract' #테서렉트 경로 지정
 
-file = r'Sample\Eng\Terminal.png'#변환한 파일 선택
+file = r'TestSample\Original\user.jpg'#변환한 파일 선택
 
 img = cv2.imread(file) # 불러올 파일 저장
 
