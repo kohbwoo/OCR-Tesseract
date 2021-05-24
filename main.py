@@ -3,8 +3,8 @@ from PIL import Image
 import pytesseract
 
 pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract' #테서렉트 경로 지정
-file = r'TestSample\White_black\user6.jpg'#변환한 파일 선택
-img = cv2.imread(file) # 불러올 파일 저장
+file = r'Sample\Kor\noname.png'#변환한 파일 선택
+img = cv2.imread(file) #불러올 파일 저장
 
 while True:
     language = int(input("1. English + 한국어\n2. English\n3. 한국어\n")) #언어 선택
