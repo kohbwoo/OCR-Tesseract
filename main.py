@@ -16,7 +16,7 @@ elif language == 2:
 elif language == 3:
     language = 'kor'
 
-prossess = int(input("1. 원본\n2. 흑백\n")) #원본 / 그레이스케일 선 택
+prossess = int(input("1. 원본\n2. 회색조\n")) #원본 / 그레이스케일 선 택
 if prossess == 1:
     h, w, c = img.shape #이미지 행렬로 변환
     boxes = pytesseract.image_to_boxes(img) #텍스트로 인식되는 데이터 박스 태깅
