@@ -3,7 +3,7 @@ from PIL import Image
 import pytesseract
 
 pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract' #테서렉트 경로 지정
-file = r'Sample\Kor\noname.png'#변환한 파일 선택
+file = r'TestSample\White_black\user6.jpg'#변환한 파일 선택
 img = cv2.imread(file) #불러올 파일 저장
 
 while True:
@@ -28,7 +28,7 @@ while True:
         boxes = pytesseract.image_to_boxes(img) #텍스트로 인식되는 데이터 박스 태깅
         for b in boxes.splitlines():
             b = b.split(' ')
-            img = cv2.rectangle(img, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (0, 255, 0), 1)
+            img = cv2.rectangle(img, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (0, 255, 0), 3)
         output = (pytesseract.image_to_string(Image.open(file), lang=language)) #이미지 -> 문자열 추출, lang 언어설정
         final_str = output[:-1] #문자열 마지막 텍스트 제거
         print(final_str) #출력
