@@ -3,7 +3,7 @@ from PIL import Image
 import pytesseract
 
 pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract' #테서렉트 경로 지정
-file = r'TestSample\White_black\user6.jpg'#변환한 파일 선택
+file = r'ScaleTest\user6-500.jpg'#변환한 파일 선택
 img = cv2.imread(file) #불러올 파일 저장
 
 while True:
@@ -37,7 +37,7 @@ while True:
     elif prossess == 2:
         im_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         cv2.imwrite('Sample\Gray\Gray.png', im_gray)
-        h, w, c = img.shape  # 이미지 행렬로 변환
+        h, w, c = img.shape  # 이미지 행렬로 변환-
         boxes = pytesseract.image_to_boxes(im_gray)  # 텍스트로 인식되는 데이터 박스 태깅
         for b in boxes.splitlines():
             b = b.split(' ')
