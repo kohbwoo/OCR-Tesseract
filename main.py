@@ -1,9 +1,11 @@
+
+
 import cv2 #OpenCV
 from PIL import Image
 import pytesseract
-
 pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract' #테서렉트 경로 지정
-file = r'ScaleTest\user6-500.jpg'#변환한 파일 선택
+
+file = r'S.jpg'#변환한 파일 선택
 img = cv2.imread(file) #불러올 파일 저장
 
 while True:
@@ -17,6 +19,10 @@ while True:
     elif language == 3:
         language = 'kor'
         break
+    elif language == 4:
+        language = 'eng'
+        break
+
     else:
         print("잘못된 입력입니다.")
         continue
