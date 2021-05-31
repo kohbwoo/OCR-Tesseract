@@ -1,0 +1,2 @@
+Handwriting OCR using Tesseract
+Handwriting OCR using Tesseract
