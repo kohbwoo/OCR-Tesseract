@@ -26,9 +26,19 @@ def choose_Language():
 import cv2  # OpenCV
 from PIL import Image
 import pytesseract
+from tkinter import filedialog
+import os
+
+b = os.path.abspath(__file__)
+print(b)
+
+a = filedialog.askopenfilename()
+
+if a:
+    file = open(a + ".jpg", "w")
 
 pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'  # 테서렉트 경로 지정
-file = r'S.jpg'  # 변환한 파일 선택
+file = a  # 변환한 파일 선택
 img = cv2.imread(file)  # 불러올 파일 저장
 
 language, onlyNum = choose_Language()
@@ -47,4 +57,4 @@ final_str = output[:-1]  # 문자열 마지막 텍스트 제거
 print(final_str)  # 출력
 cv2.imshow('img', img)  # 박스 태깅 된 이미지 띄우기
 
-cv2.waitKey(0)  # 0 입력하여 종료
+cv2.waitKey(0)  # 0입력하여 종료
