@@ -8,14 +8,13 @@ import pytesseract
 
 
 window = Tk()
-window.title("Tesseract-OCR")
-window.geometry('300x400')
+window.title("Tesseract-OCR") #창 타이틀 텍스트
+window.geometry('300x300') #해상도 수정
 textbox = Entry(window)
 
 
 def click():
     filename = filedialog.askopenfilename(initialdir=os.getcwd())
-
     pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'  # 테서렉트 경로 지정
     file = filename  # 변환한 파일 선택
     img = cv2.imread(file)  # 불러올 파일 저장
@@ -95,7 +94,7 @@ def click():
         cv2.waitKey(0)  # 0 입력하여 종료
 
 
-    engkorbtn = Button(window, text="영어+한글", command=btn1)
+    engkorbtn = Button(window, text="영어+한글", command=btn1)  #버튼s
     engkorbtn.place(x=50, y=60)
     engbtn = Button(window, text="영어", command=btn2)
     engbtn.place(x=120, y=60)
