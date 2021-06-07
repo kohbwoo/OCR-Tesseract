@@ -1,0 +1,2 @@
+Hanlwring OCR wsimg Tesseract
+Handwriting OCR using Tesseract

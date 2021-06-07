@@ -1,4 +1,5 @@
-
+#https://github.com/kohbwoo/OCR-Tesseract
+#에러가 반복되는 경우 22Line < img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) > 부분 제외 후 실행
 from tkinter import filedialog
 from tkinter import *
 import os
@@ -18,6 +19,7 @@ def click():
     pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'  # 테서렉트 경로 지정
     file = filename  # 변환한 파일 선택
     img = cv2.imread(file)  # 불러올 파일 저장
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #이미지 흑백 변환
     textbox.insert(0, str(file))
 
     def btn1():
@@ -44,7 +46,7 @@ def click():
         boxes = pytesseract.image_to_boxes(img)  # 텍스트로 인식되는 데이터 박스 태깅
         for b in boxes.splitlines():
             b = b.split(' ')
-            img = cv2.rectangle(img, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (0, 255, 0), 3)
+            img = cv2.rectangle(img, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (0, 255, 0), 1)
         output = (pytesseract.image_to_string(Image.open(file), lang='eng'))  # 이미지 -> 문자열 추출, lang 언어설정
         final_str = output[:-1]  # 문자열 마지막 텍스트 제거
         label = Label(window, text=final_str)  # 출력
@@ -81,8 +83,7 @@ def click():
         for b in boxes.splitlines():
             b = b.split(' ')
             img = cv2.rectangle(img, (int(b[1]), h - int(b[2])), (int(b[3]), h - int(b[4])), (0, 255, 0), 3)
-        output = (pytesseract.image_to_string(Image.open(file), lang='eng',
-                                                  config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789'))  # 이미지 -> 문자열 추출, lang 언어설정
+        output = (pytesseract.image_to_string(Image.open(file), lang='eng', config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789'))  # 이미지 -> 문자열 추출, lang 언어설정
         final_str = output[:-1]  # 문자열 마지막 텍스트 제거
         label = Label(window, text=final_str)  # 출력
         label.place(x=100, y=100)
