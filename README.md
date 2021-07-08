@@ -10,4 +10,6 @@ Image,
 Numpy,
 OpenCV-Python,
 Pytesseract
+![image](https://user-images.githubusercontent.com/29862835/124919323-0d887c80-e031-11eb-8df5-fec6bd42fc9b.png)
+
 
